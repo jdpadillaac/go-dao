@@ -10,10 +10,10 @@ import (
 func GetConfiguration() (models.Configuration, error) {
 
 	config := models.Configuration{}
-	file, err := os.Open("./configuration.json")
+	file, err := os.Open("./configutarion.json")
 
 	if err != nil {
-		return nil, err
+		return config, err
 	}
 
 	defer file.Close()
@@ -21,7 +21,7 @@ func GetConfiguration() (models.Configuration, error) {
 	decoder := json.NewDecoder(file)
 	err = decoder.Decode(&config)
 	if err != nil {
-		return nil, err
+		return config, err
 	}
 
 	return config, nil
